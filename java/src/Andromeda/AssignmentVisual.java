@@ -109,7 +109,7 @@ public class AssignmentVisual extends Visual
         
                 rotateY(rot);
                 float[] bands = getSmoothedBands();
-                for(int i = 0 ; i < bands.length ; i ++)
+                for(int i = 0 ; i < bands.length ; i++)
                 {
                     float theta = map(i, 0, bands.length, 0, TWO_PI);
         
@@ -122,8 +122,14 @@ public class AssignmentVisual extends Visual
                     rotateY(theta);
                     box(50, h, 50);
                     popMatrix();
+                }
+            break;
+
+            case 2:
+            
+                
+
             break;
     }
 }
     }
-}
