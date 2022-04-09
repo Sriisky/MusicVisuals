@@ -12,13 +12,16 @@ Student Number: C20353056, C20355901, C20394813
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
-Our assignment is a audio visual representation of the song Andromeda by Gorillaz.
+Our assignment is a audio visual representation of the song Andromeda by Gorillaz. Our package is named Andromeda. 
 
 # Instructions
+We used switch cases to allow us to develop different scenes for different sections of the song. This is to help reflect the different emotions and riffs that take place in the song.
 
 # How it works
+The program works by rotating between the different cases for different sections of the song
 
 # What I am most proud of in the assignment
+We are most proud of producing unique visuals that reflected different parts of the song. For example, 
 
 # Markdown Tutorial
 
