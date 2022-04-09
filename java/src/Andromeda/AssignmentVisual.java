@@ -26,11 +26,16 @@ public class AssignmentVisual extends Visual
     float smoothedY = 0;
     float smoothedAmplitude = 0;
 
+    Star[] stars = new Star[800];
+
     public void settings()
     {
         size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
         //fullScreen(P3D, SPAN);
+
+        for (int i = 0; i < stars.length; i++) {
+            stars[i] = new Star();
     }
 
     public void keyPressed() {
@@ -126,10 +131,21 @@ public class AssignmentVisual extends Visual
             break;
 
             case 2:
-            
-                
+                // i link the value of the speed variable to the mouse position.
+                speed = map(mouseX, 0, width, 0, 50);
 
+                background(0);
+                // I shift the entire composition,
+                // moving its center from the top left corner to the center of the canvas.
+                translate(width/2, height/2);
+                // I draw each star, running the "update" method to update its position and
+                // the "show" method to show it on the canvas.
+                for (int i = 0; i < stars.length; i++) {
+                    stars[i].update();
+                    stars[i].show();
+                }
+                
             break;
     }
 }
-    }
+}
