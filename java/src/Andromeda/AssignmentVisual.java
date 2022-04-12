@@ -26,6 +26,8 @@ public class AssignmentVisual extends Visual
     float smoothedY = 0;
     float smoothedAmplitude = 0;
 
+    float speed = 0;
+
     Star[] stars = new Star[800];
 
     public void settings()
@@ -36,6 +38,7 @@ public class AssignmentVisual extends Visual
 
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
+        }
     }
 
     public void keyPressed() {
@@ -130,6 +133,7 @@ public class AssignmentVisual extends Visual
                 }
             break;
 
+            // this is the main beat drop effect, star wars vibez
             case 2:
                 // i link the value of the speed variable to the mouse position.
                 speed = map(mouseX, 0, width, 0, 50);

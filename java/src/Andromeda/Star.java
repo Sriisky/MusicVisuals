@@ -2,7 +2,7 @@ package Andromeda;
 
 import ie.tudublin.*;
 
-class Star {
+public class Star extends Visual{
         // I create variables to specify the x and y of each star.
         float x;
         float y;
@@ -12,16 +12,17 @@ class Star {
         // I create an other variable to store the previous value of the z variable.
         // (the value of the z variable at the previous frame).
         float pz;
+
       
         Star() {
           // I place values in the variables
-          x = random(-width/2, width/2);
+          x = random(0, width);
           // note: height and width are the same: the canvas is a square.
-          y = random(-height/2, height/2);
+          y = random(0, height);
           // note: the z value can't exceed the width/2 (and height/2) value,
           // beacuse I'll use "z" as divisor of the "x" and "y",
           // whose values are also between "0" and "width/2".
-          z = random(width/2);
+          z = random(0, width);
           // I set the previous position of "z" in the same position of "z",
           // which it's like to say that the stars are not moving during the first frame.
           pz = z;
@@ -36,7 +37,7 @@ class Star {
           // Wich means the more the speed value is bigger, the more the "z" decrease,
           // and the more the x and y coordinates increase.
           // Note: the "z" value is the first value I updated for the new frame.
-          z = z - speed;
+          z = z - 10;
           // when the "z" value equals to 1, I'm sure the star have passed the
           // borders of the canvas( probably it's already far away from the borders),
           // so i can place it on more time in the canvas, with new x, y and z values.
