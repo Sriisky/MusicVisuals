@@ -1,13 +1,13 @@
 package Andromeda;
 
-import ie.tudublin.*;
-
+import ie.tudublin.Visual;
+import ie.tudublin.VisualException;
 
 public class AssignmentVisual extends Visual
 {    
     public void settings()
     {
-        size(800, 800, P3D);
+        size(800, 800);
         println("CWD: " + System.getProperty("user.dir"));
         //fullScreen(P3D, SPAN);
     }
@@ -19,6 +19,12 @@ public class AssignmentVisual extends Visual
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
             
+            if (ap.isPlaying()) {
+                ap.pause();
+            } else {
+                ap.rewind();
+                ap.play();
+            }
         }
  
     }
@@ -26,7 +32,7 @@ public class AssignmentVisual extends Visual
     public void setup()
     {
         colorMode(HSB);
-        noCursor();
+        noCursor(); // Hide cursor in visual
         
         setFrameSize(256);
 

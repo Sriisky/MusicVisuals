@@ -1,18 +1,9 @@
 package ie.tudublin;
 
-import Andromeda.AssignmentVisual;
-import example.CubeVisual;
-import example.MyVisual;
-import example.RotatingAudioBands;
+import Andromeda.*;
 
 public class Main
 {	
-
-	public void startUI0()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MyVisual());		
-	}
 
 	public void startUI1()
 	{
