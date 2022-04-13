@@ -1,9 +1,7 @@
 package ie.tudublin;
 
 import Andromeda.AssignmentVisual;
-import example.CubeVisual;
 import example.MyVisual;
-import example.RotatingAudioBands;
 
 public class Main
 {	
