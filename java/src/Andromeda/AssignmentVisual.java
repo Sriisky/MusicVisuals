@@ -5,6 +5,7 @@ import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
+import example.CubeVisual1;
 
 
 public class AssignmentVisual extends Visual
@@ -37,7 +38,7 @@ public class AssignmentVisual extends Visual
         //fullScreen(P3D, SPAN);
 
         for (int i = 0; i < stars.length; i++) {
-            stars[i] = new Star();
+            stars[i] = new Star(this);
         }
     }
 

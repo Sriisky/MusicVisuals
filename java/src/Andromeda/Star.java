@@ -13,8 +13,11 @@ public class Star extends Visual{
         // (the value of the z variable at the previous frame).
         float pz;
 
+        AssignmentVisual viz;
+
       
-        Star() {
+        Star(AssignmentVisual assignmentVisual) {
+          this.viz = assignmentVisual;
           // I place values in the variables
           x = random(0, width);
           // note: height and width are the same: the canvas is a square.
@@ -51,8 +54,8 @@ public class Star extends Visual{
         }
       
         void show() {
-          fill(255);
-          noStroke();
+          viz.fill(255);
+          viz.noStroke();
       
           // with theese "map", I get the new star positions
           // the division x / z get a number between 0 and a very high number,
@@ -65,7 +68,7 @@ public class Star extends Visual{
       
           // I use the z value to increase the star size between a range from 0 to 16.
           float r = map(z, 0, width/2, 16, 0);
-          ellipse(sx, sy, r, r);
+          this.viz.ellipse(sx, sy, r, r);
       
           // Here i use the "pz" valute to get the previous position of the stars,
           // so I can draw a line from the previous position to the new (current) one.
@@ -77,8 +80,8 @@ public class Star extends Visual{
           // to the "z" value of the previous frame.
           pz = z;
       
-          stroke(255);
-          line(px, py, sx, sy);
+          viz.stroke(255);
+          viz.line(px, py, sx, sy);
       
         }
       }
