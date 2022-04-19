@@ -8,6 +8,7 @@ public class Star extends Visual{
         float y;
         // I create "z", a variable I'll use in a formula to modify the stars position.
         float z;
+        float speed;
       
         // I create an other variable to store the previous value of the z variable.
         // (the value of the z variable at the previous frame).
@@ -65,6 +66,7 @@ public class Star extends Visual{
       
           float sx = map(x / z, 0, 1, 0, width/2);
           float sy = map(y / z, 0, 1, 0, height/2);;
+          speed = map(mouseX, 0, width, 0, 50);
       
           // I use the z value to increase the star size between a range from 0 to 16.
           float r = map(z, 0, width/2, 16, 0);
