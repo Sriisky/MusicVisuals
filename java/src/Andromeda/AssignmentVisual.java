@@ -13,11 +13,13 @@ public class AssignmentVisual extends Visual {
         // fullScreen(P3D, SPAN);
     }
 
+    int mode = 1;
+
     public void keyPressed() {
-		if (key >= '0' && key <= '9') {
-			mode = key - '0';
-		}
-		if (keyCode == ' ') {
+        if (key >= '0' && key <= '9') {
+            mode = key - '0';
+        }
+        if (keyCode == ' ') {
             if (ap.isPlaying()) {
                 ap.pause();
             } else {
@@ -25,8 +27,7 @@ public class AssignmentVisual extends Visual {
                 ap.play();
             }
         }
-	}
-
+    }
 
     Star[] stars = new Star[400];
 
@@ -53,11 +54,8 @@ public class AssignmentVisual extends Visual {
         // minim = new Minim(this);
         // ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
         // ab = ai.mix;
-        
 
     }
-
-    
 
     public void draw() {
 
@@ -70,59 +68,80 @@ public class AssignmentVisual extends Visual {
         // }
 
         switch (mode) {
-            case 1:
-                
+            case 1: {
+                // Assigning a value to wave so you can get the object to move with framecount
+                // the radians is used to smooth it somehow because of maths
+
+                float wave = sin(radians(frameCount));
+
+                // The sphere in the middle rotation with random colours using stroke random
+                // function
+                pushMatrix();
+                // fill(random(0,255), 255 ,255);
+                fill(0);
+                lights();
+                stroke(random(0, 255), 255, 255);
+                // stroke(255);
+                translate(400, 400, 0);
+                rotateX(wave * 2);
+                rotateY(wave * 2);
+                sphere(100);
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(wave * 200, wave * 200, wave);
+                rotate(wave);
+                box(100);
+                popMatrix();
+
+                // pushMatrix();
+                // stroke(100);
+                // fill(255);
+                // beginShape(TRIANGLES);
+                // vertex(100, -100, 100);
+                // vertex(-100, 100, 100);
+                // vertex(100, 100, 100);
+                // vertex(100, -100, 100);
+                // endShape();
+                // popMatrix();
+
+                // Stars Background
+                translate(width / 2, height / 2);
+                for (int i = 0; i < stars.length; i++) {
+                    stars[i].update();
+                    stars[i].show();
+
+                }
+
+                // for (int i = 0; i < ab.size(); i++) {
+                // float colour = map(ab.get(i), -1, 1, 0, 255);
+                // //float colour = map(i, 0, ab.size(), 0, 255);
+                // stroke(colour, 255, 255);
+                // fill(colour, 255, 255);
+                // //stroke(map(i, 0, getAudioBuffer().size(), 0, 255), 255, 255);
+                // ellipse(width / 2, height / 2 + wave * 300, 100, 100);
+                // }
+
+                // heart shape idk what to do with it
+
+                // smooth();
+                // noStroke();
+                // fill(255,255,255);
+                // beginShape();
+                // vertex(50, 15);
+                // bezierVertex(50, -5, 90, 5, 50, 40);
+                // vertex(50, 15);
+                // bezierVertex(50, -5, 10, 5, 50, 40);
+                // endShape();
+            }
                 break;
-        
-            default:
+            case 2: {
+
+            }
                 break;
         }
-        // Assigning a value to wave so you can get the object to move with framecount
-        // the radians is used to smooth it somehow because of maths
-
-        float wave = sin(radians(frameCount));
-
-        // The sphere in the middle rotation with random colours using stroke random
-        // function
-        pushMatrix();
-        // fill(random(0,255), 255 ,255);
-        fill(0);
-        lights();
-        stroke(random(0, 255), 255, 255);
-        // stroke(255);
-        translate(400, 400, 0);
-        rotateX(wave * 2);
-        rotateY(wave * 2);
-        sphere(100);
-        popMatrix();
-
-        // Stars Background
-        translate(width / 2, height / 2);
-        for (int i = 0; i < stars.length; i++) {
-            stars[i].update();
-            stars[i].show();
-
-        }
-
-        // for (int i = 0; i < ab.size(); i++) {
-        // float colour = map(ab.get(i), -1, 1, 0, 255);
-        // //float colour = map(i, 0, ab.size(), 0, 255);
-        // stroke(colour, 255, 255);
-        // fill(colour, 255, 255);
-        // //stroke(map(i, 0, getAudioBuffer().size(), 0, 255), 255, 255);
-        // ellipse(width / 2, height / 2 + wave * 300, 100, 100);
-        // }
-
-        // heart shape idk what to do with it
-
-        // smooth();
-        // noStroke();
-        // fill(255,255,255);
-        // beginShape();
-        // vertex(50, 15);
-        // bezierVertex(50, -5, 90, 5, 50, 40);
-        // vertex(50, 15);
-        // bezierVertex(50, -5, 10, 5, 50, 40);
-        // endShape();
     }
 }

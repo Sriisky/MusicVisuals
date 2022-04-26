@@ -30,6 +30,7 @@ public class Star extends AssignmentVisual {
 
         float r = map(z, 0, width, 16, 0);
         floor.ellipse(sx, sy, r, r);
+        // floor.box(sx,sy,r);
 
     }
 
