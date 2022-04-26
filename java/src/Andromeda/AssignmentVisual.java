@@ -37,7 +37,7 @@ public class AssignmentVisual extends Visual {
 
         // Stars generation
         for (int i = 0; i < stars.length; i++) {
-            stars[i] = new Star();
+            stars[i] = new Star(Star);
         }
 
 

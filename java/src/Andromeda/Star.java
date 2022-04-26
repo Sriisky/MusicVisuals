@@ -1,4 +1,5 @@
 package Andromeda;
+import ie.tudublin.*;
 
 public class Star extends AssignmentVisual {
     AssignmentVisual star;
@@ -6,7 +7,7 @@ public class Star extends AssignmentVisual {
     float y;
     float z;
 
-    Star() {
+    Star(AssignmentVisual star) {
         x = random(0, width);
         y = random(0, height);
         z = random(0, width);
