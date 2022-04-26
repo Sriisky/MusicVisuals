@@ -1,87 +1,117 @@
 package Andromeda;
 
+import ddf.minim.AudioBuffer;
+import ddf.minim.AudioInput;
+import ddf.minim.Minim;
 import ie.tudublin.*;
+import processing.core.PApplet;
 
-
-public class AssignmentVisual extends Visual
-{    
-    public void settings()
-    {
+public class AssignmentVisual extends Visual {
+    public void settings() {
         size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
-        //fullScreen(P3D, SPAN);
+        // fullScreen(P3D, SPAN);
     }
 
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
+    public void keyPressed() {
+        if (key == ' ') {
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
-            
+
         }
- 
+
     }
 
-    public void setup()
-    {
+    Star[] stars =  new Star[100];
+
+    public void setup() {
         colorMode(HSB);
-        noCursor();
-        
+        // noCursor();
+
         setFrameSize(256);
 
         startMinim();
         loadAudio("andromeda.mp3");
         getAudioPlayer().play();
-        //startListening(); 
-        
+        // startListening();
+
+        // Stars generation
+        for (int i = 0; i < stars.length; i++) {
+            stars[i] = new Star();
+        }
+
+
+        // Making Setup for Audio
+        // Minim minim;
+        // AudioInput ai;
+        // AudioBuffer ab;
+        // minim = new Minim(this);
+        // ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
+        // ab = ai.mix;
+
     }
 
-    float radius = 200;
+    public void draw() {
 
-    float smoothedBoxSize = 0;
-
-    float rot = 0;
-
-    public void draw()
-    {
-        calculateAverageAmplitude();
-        try
-        {
-            calculateFFT();
-        }
-        catch(VisualException e)
-        {
-            e.printStackTrace();
-        }
-        calculateFrequencyBands();
         background(0);
-        noFill();
-        stroke(255);
+        noStroke();
+
+        // for (int i = 0; i < ab.size(); i++) {
+        //     float colour = map(ab.get(i), -1, 1, 0, 255);
+        //     stroke(colour, 255, 255);
+        // }
+
+       
+
+        // Assigning a value to wave so you can get the object to move with framecount
+        // the radians is used to smooth it somehow because of maths
+
+        float wave = sin(radians(frameCount));
+
+        // The sphere in the middle rotation with random colours using stroke random function
+        fill(0);
         lights();
-        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        camera(0, -500, 500, 0, 0, 0, 0, 1, 0);
-        //translate(0, 0, -250);
+        stroke(random(0, 255), 255 ,255);
+        translate(400, 400, 0);
+        rotateX(wave * 2);
+        rotateY(wave * 2);
+        sphere(100);
+        
+        // Stars Background
 
-        rot += getAmplitude() / 8.0f;
+        for (int i = 0; i < stars.length; i++) {
+            stars[i].update();
+            stars[i].show();
 
-        rotateY(rot);
-        float[] bands = getSmoothedBands();
-        for(int i = 0 ; i < bands.length ; i ++)
-        {
-            float theta = map(i, 0, bands.length, 0, TWO_PI);
-
-            stroke(map(i, 0, bands.length, 0, 255), 255, 255);
-            float x = sin(theta) * radius;
-            float z = cos(theta) * radius;
-            float h = bands[i];
-            pushMatrix();
-            translate(x, - h / 2 , z);
-            rotateY(theta);
-            box(50, h, 50);
-            popMatrix();
         }
 
+
+
+
+
+
+
+
+
+        // for (int i = 0; i < ab.size(); i++) {
+        // float colour = map(ab.get(i), -1, 1, 0, 255);
+        // //float colour = map(i, 0, ab.size(), 0, 255);
+        // stroke(colour, 255, 255);
+        // fill(colour, 255, 255);
+        // //stroke(map(i, 0, getAudioBuffer().size(), 0, 255), 255, 255);
+        // ellipse(width / 2, height / 2 + wave * 300, 100, 100);
+        // }
+
+        // heart shape idk what to do with it
+
+        // smooth();
+        // noStroke();
+        // fill(255,255,255);
+        // beginShape();
+        // vertex(50, 15);
+        // bezierVertex(50, -5, 90, 5, 50, 40);
+        // vertex(50, 15);
+        // bezierVertex(50, -5, 10, 5, 50, 40);
+        // endShape();
     }
-    float angle = 0;
 }
