@@ -22,7 +22,7 @@ public class AssignmentVisual extends Visual {
 
     }
 
-    Star[] stars =  new Star[100];
+    Star[] stars =  new Star[400];
 
     public void setup() {
         colorMode(HSB);
@@ -37,7 +37,7 @@ public class AssignmentVisual extends Visual {
 
         // Stars generation
         for (int i = 0; i < stars.length; i++) {
-            stars[i] = new Star(Star);
+            stars[i] = new Star(this);
         }
 
 
@@ -78,12 +78,14 @@ public class AssignmentVisual extends Visual {
         sphere(100);
         
         // Stars Background
-
+        pushMatrix();
+        translate(width/2, height/2);
         for (int i = 0; i < stars.length; i++) {
             stars[i].update();
             stars[i].show();
 
         }
+        popMatrix();
 
 
 
