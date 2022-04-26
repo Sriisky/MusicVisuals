@@ -92,7 +92,36 @@ public class AssignmentVisual extends Visual {
                 lights();
                 stroke(random(0, 255), 255, 255);
                 fill(0);
-                translate(wave * 200, wave * 200, wave);
+                translate(200, 200, wave * 200);
+                rotate(wave);
+                box(100);
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(200, 600, wave * 200);
+                rotateX(wave * 2);
+                rotateY(wave * 2);
+                box(100);
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(600, 200, wave * 200);
+                rotateX(wave * 2);
+                rotateY(wave * 2);
+                box(100);
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(600, 600, wave * 200);
                 rotate(wave);
                 box(100);
                 popMatrix();
