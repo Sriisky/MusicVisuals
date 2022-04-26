@@ -22,7 +22,7 @@ public class AssignmentVisual extends Visual {
 
     }
 
-    Star[] stars =  new Star[400];
+    Star[] stars = new Star[400];
 
     public void setup() {
         colorMode(HSB);
@@ -40,7 +40,6 @@ public class AssignmentVisual extends Visual {
             stars[i] = new Star(this);
         }
 
-
         // Making Setup for Audio
         // Minim minim;
         // AudioInput ai;
@@ -57,43 +56,36 @@ public class AssignmentVisual extends Visual {
         noStroke();
 
         // for (int i = 0; i < ab.size(); i++) {
-        //     float colour = map(ab.get(i), -1, 1, 0, 255);
-        //     stroke(colour, 255, 255);
+        // float colour = map(ab.get(i), -1, 1, 0, 255);
+        // stroke(colour, 255, 255);
         // }
-
-       
 
         // Assigning a value to wave so you can get the object to move with framecount
         // the radians is used to smooth it somehow because of maths
 
         float wave = sin(radians(frameCount));
 
-        // The sphere in the middle rotation with random colours using stroke random function
+        // The sphere in the middle rotation with random colours using stroke random
+        // function
+        pushMatrix();
+        // fill(random(0,255), 255 ,255);
         fill(0);
         lights();
-        stroke(random(0, 255), 255 ,255);
+        stroke(random(0, 255), 255, 255);
+        // stroke(255);
         translate(400, 400, 0);
         rotateX(wave * 2);
         rotateY(wave * 2);
         sphere(100);
-        
+        popMatrix();
+
         // Stars Background
-        pushMatrix();
-        translate(width/2, height/2);
+        translate(width / 2, height / 2);
         for (int i = 0; i < stars.length; i++) {
             stars[i].update();
             stars[i].show();
 
         }
-        popMatrix();
-
-
-
-
-
-
-
-
 
         // for (int i = 0; i < ab.size(); i++) {
         // float colour = map(ab.get(i), -1, 1, 0, 255);
