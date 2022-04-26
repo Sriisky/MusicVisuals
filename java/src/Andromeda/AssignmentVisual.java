@@ -14,13 +14,19 @@ public class AssignmentVisual extends Visual {
     }
 
     public void keyPressed() {
-        if (key == ' ') {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-
+		if (key >= '0' && key <= '9') {
+			mode = key - '0';
+		}
+		if (keyCode == ' ') {
+            if (ap.isPlaying()) {
+                ap.pause();
+            } else {
+                ap.rewind();
+                ap.play();
+            }
         }
+	}
 
-    }
 
     Star[] stars = new Star[400];
 
@@ -47,8 +53,11 @@ public class AssignmentVisual extends Visual {
         // minim = new Minim(this);
         // ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
         // ab = ai.mix;
+        
 
     }
+
+    
 
     public void draw() {
 
@@ -60,6 +69,14 @@ public class AssignmentVisual extends Visual {
         // stroke(colour, 255, 255);
         // }
 
+        switch (mode) {
+            case 1:
+                
+                break;
+        
+            default:
+                break;
+        }
         // Assigning a value to wave so you can get the object to move with framecount
         // the radians is used to smooth it somehow because of maths
 
