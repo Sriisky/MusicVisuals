@@ -30,6 +30,8 @@ public class AssignmentVisual extends Visual {
     }
 
     Star[] stars = new Star[400];
+    float smothedAmplitude;
+    float smoothedBoxSize;
 
     public void setup() {
         colorMode(HSB);
@@ -69,6 +71,7 @@ public class AssignmentVisual extends Visual {
 
         switch (mode) {
             case 1: {
+
                 // Assigning a value to wave so you can get the object to move with framecount
                 // the radians is used to smooth it somehow because of maths
 
@@ -95,6 +98,7 @@ public class AssignmentVisual extends Visual {
                 translate(200, 200, wave * 200);
                 rotate(wave);
                 box(100);
+
                 popMatrix();
 
                 pushMatrix();
@@ -145,15 +149,6 @@ public class AssignmentVisual extends Visual {
 
                 }
 
-                // for (int i = 0; i < ab.size(); i++) {
-                // float colour = map(ab.get(i), -1, 1, 0, 255);
-                // //float colour = map(i, 0, ab.size(), 0, 255);
-                // stroke(colour, 255, 255);
-                // fill(colour, 255, 255);
-                // //stroke(map(i, 0, getAudioBuffer().size(), 0, 255), 255, 255);
-                // ellipse(width / 2, height / 2 + wave * 300, 100, 100);
-                // }
-
                 // heart shape idk what to do with it
 
                 // smooth();
@@ -169,6 +164,12 @@ public class AssignmentVisual extends Visual {
                 break;
             case 2: {
 
+                noFill();
+                stroke(255);
+                strokeWeight(2);
+                for (int i = 0; i < 200; i += 20) {
+                    bezier(0, 800, 200+ i, 200 + i, 400 + i, 400 + i, 800, 800);
+                }
             }
                 break;
         }

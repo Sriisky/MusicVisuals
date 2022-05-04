@@ -25,13 +25,14 @@ public class Star extends AssignmentVisual {
     void show() {
         float sx = map(x / z, 0, 1, 0, width);
         float sy = map(y / z, 0, 1, 0, width);
-        // floor.fill(random(0,255),255,255);
-        floor.fill(255);
+        floor.fill(random(0,255),255,255);
+        //floor.fill(255);
         floor.noStroke();
 
         float r = map(z, 0, width, 16, 0);
         floor.ellipse(sx, sy, r, r);
         // floor.box(sx,sy,r);
+        
 
     }
 
