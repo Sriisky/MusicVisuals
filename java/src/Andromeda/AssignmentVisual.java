@@ -167,6 +167,7 @@ public class AssignmentVisual extends Visual {
                 noFill();
                 stroke(255);
                 strokeWeight(2);
+                // test
                 for (int i = 0; i < 200; i += 20) {
                     bezier(0, 800, 200+ i, 200 + i, 400 + i, 400 + i, 800, 800);
                 }
