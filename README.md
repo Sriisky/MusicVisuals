@@ -15,14 +15,15 @@ Student Number: C20353056, C20355901, C20394813
 Our assignment is a audio visual representation of the song Andromeda by Gorillaz.
 
 # Instructions
+Our assignment uses switch cases. We have 3 visuals in total and you use the 1-3 keys to cycle through our visuals. The first visual we let run though the first trimester of the song, and the second visual is for the chorus. The the third visual for the final section of the song. Once you run the program the visual and song will automatically start.
 
 # How it works
+For our firt case
+
 
 # What I am most proud of in the assignment
+Our proudest moment was creating code that resembles the feeling of the music. There is a real out of space melody to the song so we decided to recreate the feeling of falling through space with our 1st visual. We had many errors in the initial development of our star warp background but after many failed attempts we made a successful version where there is a perception of the stars coming from the middle of the screen.
 
-# Markdown Tutorial
-
-This is *emphasis*
 
 This is a bulleted list
 
