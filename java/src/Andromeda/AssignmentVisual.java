@@ -76,6 +76,8 @@ public class AssignmentVisual extends Visual {
                 // the radians is used to smooth it somehow because of maths
 
                 float wave = sin(radians(frameCount));
+                calculateAverageAmplitude();
+                float daddy = 50 + (200 * getSmoothedAmplitude());
 
                 // The sphere in the middle rotation with random colours using stroke random
                 // function
@@ -86,8 +88,8 @@ public class AssignmentVisual extends Visual {
                 stroke(random(0, 255), 255, 255);
                 // stroke(255);
                 translate(400, 400, 0);
-                rotateX(wave * 2);
-                rotateY(wave * 2);
+                rotateX(wave);
+                rotateY(wave);
                 sphere(100);
                 popMatrix();
 
@@ -97,7 +99,7 @@ public class AssignmentVisual extends Visual {
                 fill(0);
                 translate(200, 200, wave * 200);
                 rotate(wave);
-                box(100);
+                box(daddy);
 
                 popMatrix();
 
@@ -106,9 +108,9 @@ public class AssignmentVisual extends Visual {
                 stroke(random(0, 255), 255, 255);
                 fill(0);
                 translate(200, 600, wave * 200);
-                rotateX(wave * 2);
-                rotateY(wave * 2);
-                box(100);
+                rotateX(wave);
+                rotateY(wave);
+                box(daddy);
                 popMatrix();
 
                 pushMatrix();
@@ -116,9 +118,9 @@ public class AssignmentVisual extends Visual {
                 stroke(random(0, 255), 255, 255);
                 fill(0);
                 translate(600, 200, wave * 200);
-                rotateX(wave * 2);
-                rotateY(wave * 2);
-                box(100);
+                rotateX(wave);
+                rotateY(wave);
+                box(daddy);
                 popMatrix();
 
                 pushMatrix();
@@ -127,7 +129,7 @@ public class AssignmentVisual extends Visual {
                 fill(0);
                 translate(600, 600, wave * 200);
                 rotate(wave);
-                box(100);
+                box(daddy);
                 popMatrix();
 
                 // pushMatrix();
@@ -164,15 +166,94 @@ public class AssignmentVisual extends Visual {
                 break;
             case 2: {
 
+                // noFill();
+                // stroke(255);
+                // strokeWeight(2);
+                // for (int i = 0; i < 200; i += 20) {
+                // bezier(0, 800, 200 + i, 200 + i, 400 + i, 400 + i, 800, 800);
+                // }
+
+                background(0);
+                strokeWeight(3);
+                stroke(random(0, 255));
                 noFill();
-                stroke(255);
+                bezier(50, 750, 0, 400, 200, 200, 50, 50);
+
+                bezier(50, 750, 200, 550, 400, 750, 750, 750);
+
+                bezier(750, 750, 550, 750, 350, 750, 750, 50);
+                // bezier(x1, y1, x2, y2, x3, y3, x4, y4);
+
+            }
+                break;
+            case 3: {
+                background(0);
+                calculateAverageAmplitude();
+                float daddy = 10 + (200 * getSmoothedAmplitude());
+
+                // LINES
+                stroke(random(0, 255), 255, 255);
                 strokeWeight(2);
-                // test
-                for (int i = 0; i < 200; i += 20) {
-                    bezier(0, 800, 200+ i, 200 + i, 400 + i, 400 + i, 800, 800);
-                }
+                line(0 + daddy * 3, 0 + daddy * 3, width / 2 - daddy, height / 2 - daddy);
+                line(0 + daddy * 3, 800 - daddy * 3, width / 2 - daddy, height / 2 + daddy);
+                line(800 - daddy * 3, 800 - daddy * 3, width / 2 + daddy, height / 2 + daddy);
+                line(800 - daddy * 3, 0 + daddy * 3, width / 2 + daddy, height / 2 - daddy);
+
+                // STAR
+                pushMatrix();
+                fill(0);
+                beginShape();
+                vertex(width / 2, height / 2 + daddy);
+                vertex(width / 2 + 10 + daddy, height / 2 + 10 + daddy);
+                vertex(width / 2 + daddy, height / 2);
+                vertex(width / 2 + 10 + daddy, height / 2 - 10 - daddy);
+                vertex(width / 2, height / 2 - daddy);
+                vertex(width / 2 - 10 - daddy, height / 2 - 10 - daddy);
+                vertex(width / 2 - daddy, height / 2);
+                vertex(width / 2 - 10 - daddy, height / 2 + 10 + daddy);
+                vertex(width / 2, height / 2 + daddy);
+                endShape();
+                popMatrix();
+                pushMatrix();
+                fill(0);
+                beginShape();
+                vertex(width / 2, height / 2 + daddy);
+                vertex(width / 2 + 10, height / 2 + 10);
+                vertex(width / 2 + daddy, height / 2);
+                vertex(width / 2 + 10, height / 2 - 10);
+                vertex(width / 2, height / 2 - daddy);
+                vertex(width / 2 - 10, height / 2 - 10);
+                vertex(width / 2 - daddy, height / 2);
+                vertex(width / 2 - 10, height / 2 + 10);
+                vertex(width / 2, height / 2 + daddy);
+                endShape();
+                popMatrix();
+
+                // triangle
+                pushMatrix();
+                beginShape();
+                vertex(width / 2, height / 2 + daddy * 2);
+                vertex(width / 2 + daddy * 2, height / 2);
+                vertex(width / 2, height / 2 - daddy * 2);
+                vertex(width / 2 - daddy * 2, height / 2);
+                vertex(width / 2, height / 2 + daddy * 2);
+                endShape();
+                popMatrix();
+
+                // cricle
+                pushMatrix();
+                stroke(204, 150, 0);
+                translate(width / 2, width / 2);
+                sphere(10);
+                popMatrix();
+
+            }
+
+            case 4: {
+
             }
                 break;
         }
+
     }
 }
