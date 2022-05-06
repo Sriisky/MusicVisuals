@@ -42,8 +42,8 @@ Our proudest moment was creating code that resembles the feeling of the music. T
 
 The websites and videos we used to support our visual creations are below:
 
-- [hyperlink](https://processing.org/)
-- [hyperlink](https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLfdtKB2pINRFTQQcExU8JOOd6CuZ3Q2U9&index=2)
+- [Processing.org](https://processing.org/)
+- [The coding train](https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLfdtKB2pINRFTQQcExU8JOOd6CuZ3Q2U9&index=2)
 
 
 This is an image using a relative URL:
@@ -58,5 +58,5 @@ This is an image using an absolute URL:
 
 This is our vimeo video as we were unable to post to Youtube due to copyright:
 
-- [hyperlink](https://vimeo.com/707030173)
+- [Vimeo link](https://vimeo.com/707030173)
 
