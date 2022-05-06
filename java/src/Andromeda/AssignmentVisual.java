@@ -166,25 +166,9 @@ public class AssignmentVisual extends Visual {
             case 2: {
                 background(0);
                 calculateAverageAmplitude();
-<<<<<<< HEAD
-                float daddy = 10 + (200 * getSmoothedAmplitude());
-                float wave = sin(radians(frameCount));
-                stroke(random(0, 255), 255, 255);
-
-                // LINES
-                stroke(random(0, 255), 255, 255);
-                strokeWeight(2);
-                line(0 + daddy * 3, 0 + daddy * 3, width / 2 - daddy, height / 2 - daddy);
-                line(0 + daddy * 3, 800 - daddy * 3, width / 2 - daddy, height / 2 + daddy);
-                line(800 - daddy * 3, 800 - daddy * 3, width / 2 + daddy, height / 2 + daddy);
-                line(800 - daddy * 3, 0 + daddy * 3, width / 2 + daddy, height / 2 - daddy);
-
-                
-=======
                 float wave = sin(radians(frameCount));
                 float daddy = 10 + (200 * getSmoothedAmplitude());
                 stroke(random(0, 255), 255, 255);
->>>>>>> refs/remotes/origin/master
 
                 // cubes
 
