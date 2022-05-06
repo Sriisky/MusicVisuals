@@ -1,6 +1,5 @@
 package Andromeda;
 
-
 import ie.tudublin.*;
 import processing.core.PApplet;
 
@@ -217,7 +216,7 @@ public class AssignmentVisual extends Visual {
                 // spheres
                 pushMatrix();
                 strokeWeight(1);
-                stroke(random(0,255), 255, 255);
+                stroke(random(0, 255), 255, 255);
                 fill(0);
                 rotateX(wave);
                 translate(200, 400, wave * 200);
@@ -226,13 +225,12 @@ public class AssignmentVisual extends Visual {
 
                 pushMatrix();
                 strokeWeight(1);
-                stroke(random(0,255), 255, 255);
+                stroke(random(0, 255), 255, 255);
                 rotateX(wave);
                 fill(0);
                 translate(600, 400, wave * 200);
                 sphere(daddy / 2);
                 popMatrix();
-                
 
                 // LINES
                 // stroke(180, 255, 255);
