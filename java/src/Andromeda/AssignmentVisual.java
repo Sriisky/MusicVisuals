@@ -1,6 +1,8 @@
 package Andromeda;
-import ie.tudublin.*;
 
+
+import ie.tudublin.*;
+import processing.core.PApplet;
 
 public class AssignmentVisual extends Visual {
     public void settings() {
