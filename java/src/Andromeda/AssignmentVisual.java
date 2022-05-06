@@ -1,87 +1,259 @@
 package Andromeda;
 
+import ddf.minim.AudioBuffer;
+import ddf.minim.AudioInput;
+import ddf.minim.Minim;
 import ie.tudublin.*;
+import processing.core.PApplet;
 
-
-public class AssignmentVisual extends Visual
-{    
-    public void settings()
-    {
+public class AssignmentVisual extends Visual {
+    public void settings() {
         size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
-        //fullScreen(P3D, SPAN);
+        // fullScreen(P3D, SPAN);
     }
 
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-            
+    int mode = 1;
+
+    public void keyPressed() {
+        if (key >= '0' && key <= '9') {
+            mode = key - '0';
         }
- 
+        if (keyCode == ' ') {
+            if (ap.isPlaying()) {
+                ap.pause();
+            } else {
+                ap.rewind();
+                ap.play();
+            }
+        }
     }
 
-    public void setup()
-    {
+    Star[] stars = new Star[400];
+    float smothedAmplitude;
+    float smoothedBoxSize;
+
+    public void setup() {
         colorMode(HSB);
-        noCursor();
-        
+        // noCursor();
+
         setFrameSize(256);
 
         startMinim();
         loadAudio("Jay-Z & Kanye West - Niggas in Paris - Watch the Throne.mp3");
         getAudioPlayer().play();
-        //startListening(); 
-        
+        // startListening();
+
+        // Stars generation
+        for (int i = 0; i < stars.length; i++) {
+            stars[i] = new Star(this);
+        }
+
+        // Making Setup for Audio
+        // Minim minim;
+        // AudioInput ai;
+        // AudioBuffer ab;
+        // minim = new Minim(this);
+        // ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
+        // ab = ai.mix;
+
     }
 
-    float radius = 200;
+    public void draw() {
 
-    float smoothedBoxSize = 0;
-
-    float rot = 0;
-
-    public void draw()
-    {
-        calculateAverageAmplitude();
-        try
-        {
-            calculateFFT();
-        }
-        catch(VisualException e)
-        {
-            e.printStackTrace();
-        }
-        calculateFrequencyBands();
         background(0);
-        noFill();
-        stroke(255);
-        lights();
-        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        camera(0, -500, 500, 0, 0, 0, 0, 1, 0);
-        //translate(0, 0, -250);
+        noStroke();
 
-        rot += getAmplitude() / 8.0f;
+        // for (int i = 0; i < ab.size(); i++) {
+        // float colour = map(ab.get(i), -1, 1, 0, 255);
+        // stroke(colour, 255, 255);
+        // }
 
-        rotateY(rot);
-        float[] bands = getSmoothedBands();
-        for(int i = 0 ; i < bands.length ; i ++)
-        {
-            float theta = map(i, 0, bands.length, 0, TWO_PI);
+        switch (mode) {
+            case 1: {
 
-            stroke(map(i, 0, bands.length, 0, 255), 255, 255);
-            float x = sin(theta) * radius;
-            float z = cos(theta) * radius;
-            float h = bands[i];
-            pushMatrix();
-            translate(x, - h / 2 , z);
-            rotateY(theta);
-            box(50, h, 50);
-            popMatrix();
+                // Assigning a value to wave so you can get the object to move with framecount
+                // the radians is used to smooth it somehow because of maths
+
+                float wave = sin(radians(frameCount));
+                calculateAverageAmplitude();
+                float daddy = 50 + (200 * getSmoothedAmplitude());
+
+                // The sphere in the middle rotation with random colours using stroke random
+                // function
+                pushMatrix();
+                // fill(random(0,255), 255 ,255);
+                fill(0);
+                lights();
+                stroke(random(0, 255), 255, 255);
+                // stroke(255);
+                translate(400, 400, 0);
+                rotateX(wave);
+                rotateY(wave);
+                sphere(100);
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(200, 200, wave * 200);
+                rotate(wave);
+                box(daddy);
+
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(200, 600, wave * 200);
+                rotateX(wave);
+                rotateY(wave);
+                box(daddy);
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(600, 200, wave * 200);
+                rotateX(wave);
+                rotateY(wave);
+                box(daddy);
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(600, 600, wave * 200);
+                rotate(wave);
+                box(daddy);
+                popMatrix();
+
+                // pushMatrix();
+                // stroke(100);
+                // fill(255);
+                // beginShape(TRIANGLES);
+                // vertex(100, -100, 100);
+                // vertex(-100, 100, 100);
+                // vertex(100, 100, 100);
+                // vertex(100, -100, 100);
+                // endShape();
+                // popMatrix();
+
+                // Stars Background
+                translate(width / 2, height / 2);
+                for (int i = 0; i < stars.length; i++) {
+                    stars[i].update();
+                    stars[i].show();
+
+                }
+
+                // heart shape idk what to do with it
+
+                // smooth();
+                // noStroke();
+                // fill(255,255,255);
+                // beginShape();
+                // vertex(50, 15);
+                // bezierVertex(50, -5, 90, 5, 50, 40);
+                // vertex(50, 15);
+                // bezierVertex(50, -5, 10, 5, 50, 40);
+                // endShape();
+            }
+                break;
+            case 2: {
+
+                // noFill();
+                // stroke(255);
+                // strokeWeight(2);
+                // for (int i = 0; i < 200; i += 20) {
+                // bezier(0, 800, 200 + i, 200 + i, 400 + i, 400 + i, 800, 800);
+                // }
+
+                background(0);
+                strokeWeight(3);
+                stroke(random(0, 255));
+                noFill();
+                bezier(50, 750, 0, 400, 200, 200, 50, 50);
+
+                bezier(50, 750, 200, 550, 400, 750, 750, 750);
+
+                bezier(750, 750, 550, 750, 350, 750, 750, 50);
+                // bezier(x1, y1, x2, y2, x3, y3, x4, y4);
+
+            }
+                break;
+            case 3: {
+                background(0);
+                calculateAverageAmplitude();
+                float daddy = 10 + (200 * getSmoothedAmplitude());
+
+                // LINES
+                stroke(random(0, 255), 255, 255);
+                strokeWeight(2);
+                line(0 + daddy * 3, 0 + daddy * 3, width / 2 - daddy, height / 2 - daddy);
+                line(0 + daddy * 3, 800 - daddy * 3, width / 2 - daddy, height / 2 + daddy);
+                line(800 - daddy * 3, 800 - daddy * 3, width / 2 + daddy, height / 2 + daddy);
+                line(800 - daddy * 3, 0 + daddy * 3, width / 2 + daddy, height / 2 - daddy);
+
+                // STAR
+                pushMatrix();
+                fill(0);
+                beginShape();
+                vertex(width / 2, height / 2 + daddy);
+                vertex(width / 2 + 10 + daddy, height / 2 + 10 + daddy);
+                vertex(width / 2 + daddy, height / 2);
+                vertex(width / 2 + 10 + daddy, height / 2 - 10 - daddy);
+                vertex(width / 2, height / 2 - daddy);
+                vertex(width / 2 - 10 - daddy, height / 2 - 10 - daddy);
+                vertex(width / 2 - daddy, height / 2);
+                vertex(width / 2 - 10 - daddy, height / 2 + 10 + daddy);
+                vertex(width / 2, height / 2 + daddy);
+                endShape();
+                popMatrix();
+                pushMatrix();
+                fill(0);
+                beginShape();
+                vertex(width / 2, height / 2 + daddy);
+                vertex(width / 2 + 10, height / 2 + 10);
+                vertex(width / 2 + daddy, height / 2);
+                vertex(width / 2 + 10, height / 2 - 10);
+                vertex(width / 2, height / 2 - daddy);
+                vertex(width / 2 - 10, height / 2 - 10);
+                vertex(width / 2 - daddy, height / 2);
+                vertex(width / 2 - 10, height / 2 + 10);
+                vertex(width / 2, height / 2 + daddy);
+                endShape();
+                popMatrix();
+
+                // triangle
+                pushMatrix();
+                beginShape();
+                vertex(width / 2, height / 2 + daddy * 2);
+                vertex(width / 2 + daddy * 2, height / 2);
+                vertex(width / 2, height / 2 - daddy * 2);
+                vertex(width / 2 - daddy * 2, height / 2);
+                vertex(width / 2, height / 2 + daddy * 2);
+                endShape();
+                popMatrix();
+
+                // cricle
+                pushMatrix();
+                stroke(204, 150, 0);
+                translate(width / 2, width / 2);
+                sphere(10);
+                popMatrix();
+
+            }
+
+            case 4: {
+
+            }
+                break;
         }
 
     }
-    float angle = 0;
 }
