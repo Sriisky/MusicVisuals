@@ -161,30 +161,9 @@ public class AssignmentVisual extends Visual {
                 // bezierVertex(50, -5, 10, 5, 50, 40);
                 // endShape();
             }
+
                 break;
             case 2: {
-
-                // noFill();
-                // stroke(255);
-                // strokeWeight(2);
-                // for (int i = 0; i < 200; i += 20) {
-                // bezier(0, 800, 200 + i, 200 + i, 400 + i, 400 + i, 800, 800);
-                // }
-
-                background(0);
-                strokeWeight(3);
-                stroke(random(0, 255));
-                noFill();
-                bezier(50, 750, 0, 400, 200, 200, 50, 50);
-
-                bezier(50, 750, 200, 550, 400, 750, 750, 750);
-
-                bezier(750, 750, 550, 750, 350, 750, 750, 50);
-                // bezier(x1, y1, x2, y2, x3, y3, x4, y4);
-
-            }
-                break;
-            case 3: {
                 background(0);
                 calculateAverageAmplitude();
                 float wave = sin(radians(frameCount));
