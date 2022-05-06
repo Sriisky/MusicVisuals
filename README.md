@@ -40,48 +40,11 @@ In our first case visual, we utilised the ```pushMatrix();``` and ```popMatrix()
 Our proudest moment was creating code that resembles the feeling of the music. There is a real out of space melody to the song so we decided to recreate the feeling of falling through space with our 1st visual. We had many errors in the initial development of our star warp background but after many failed attempts we made a successful version where there is a perception of the stars coming from the middle of the screen.
 
 
-This is a bulleted list
+The websites and videos we used to support our visual creations are below:
 
-- Item
-- Item
+- [hyperlink](https://processing.org/)
+- [hyperlink](https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLfdtKB2pINRFTQQcExU8JOOd6CuZ3Q2U9&index=2)
 
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
 
 This is an image using a relative URL:
 
@@ -91,16 +54,9 @@ This is an image using an absolute URL:
 
 ![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
 
-This is a youtube video:
 
-[![YouTube]https://youtu.be/pksVNBjTAwE
 
-This is a table:
+This is our vimeo video as we were unable to post to Youtube due to copyright:
 
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
+- [hyperlink](https://vimeo.com/707030173)
 
