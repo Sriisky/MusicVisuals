@@ -78,7 +78,7 @@ The websites and videos we used to support our visual creations are below:
 
 This is an image using a relative URL:
 
-![An image](images/p8.png)
+![An image](images/Screenshot 2022-05-06 202531.png)
 
 This is an image using an absolute URL:
 
