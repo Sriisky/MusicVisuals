@@ -66,8 +66,10 @@ The use of ```pushMatrix()``` and ```popMatrix()``` are more prevalent when we s
 ```
 
 
-# What I am most proud of in the assignment
+# What we are most proud of in the assignment
 Our proudest moment was creating code that resembles the feeling of the music. There is a real out of space melody to the song so we decided to recreate the feeling of falling through space with our 1st visual. We had many errors in the initial development of our star warp background but after many failed attempts we made a successful version where there is a perception of the stars coming from the middle of the screen.
+
+It was a really rewarding moment when we completed our third case and we could see how all of our visuals reacted to the song. The 
 
 
 The websites and videos we used to support our visual creations are below:
@@ -76,14 +78,13 @@ The websites and videos we used to support our visual creations are below:
 - [The coding train](https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLfdtKB2pINRFTQQcExU8JOOd6CuZ3Q2U9&index=2)
 
 
-This is an image using a relative URL:
+Below are still images of our 3 cases:
 
 ![An image](images/cube.png)
 
-This is an image using an absolute URL:
+![An image](images/diamond.png)
 
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
+![An image](images/sphere.png)
 
 
 This is our vimeo video as we were unable to post to Youtube due to copyright:
