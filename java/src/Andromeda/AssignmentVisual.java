@@ -11,9 +11,10 @@ public class AssignmentVisual extends Visual {
     }
 
     int mode = 1;
-    float a;                 // Angle of rotation
-    float offset = (float) (PI/24.0);  // Angle offset between boxes
-    int num = 12;            // Number of boxes
+    float a; // Angle of rotation
+    float offset = (float) (PI / 24.0); // Angle offset between boxes
+    int num = 12; // Number of boxes
+    float wave = sin(radians(frameCount));
 
     public void keyPressed() {
         if (key >= '0' && key <= '9') {
@@ -187,7 +188,7 @@ public class AssignmentVisual extends Visual {
 
                 pushMatrix();
                 lights();
-                strokeWeight(1);
+                strokeWeight(2);
                 stroke(random(0, 255), 255, 255);
                 fill(0);
                 translate(400, 600, wave * 200);
@@ -277,27 +278,28 @@ public class AssignmentVisual extends Visual {
                 popMatrix();
 
             }
-            break;
+                break;
 
             case 3: {
+                calculateAverageAmplitude();
+                float daddy = 10 + (200 * getSmoothedAmplitude());
                 background(0);
                 lights();
 
-                translate(width/2, height/2); 
-                
-                for(int i = 0; i < num; i++) {
-                  float gray = map(i, 0, num-1, 0, 255);
-                  pushMatrix();
-                  stroke(random(0,255),255,255);
-                  fill(gray);
-                  rotateY(a + offset*i);
-                  rotateX(a/2 + offset*i);
-                  box(200);
-                  popMatrix();
+                translate(width / 2, height / 2);
+
+                for (int i = 0; i < num; i++) {
+                    fill(0);
+                    pushMatrix();
+                    stroke(random(0, 255), 255, 255);
+                    // fill(gray);
+                    rotateY(a + offset * i);
+                    rotateX(a / 2 + offset * i);
+                    box(daddy*5);
+                    popMatrix();
                 }
 
-                
-                a += 0.01; 
+                a += 0.01;
 
             }
                 break;
