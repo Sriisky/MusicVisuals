@@ -31,7 +31,7 @@ public class AssignmentVisual extends Visual
         setFrameSize(256);
 
         startMinim();
-        loadAudio("andromeda.mp3");
+        loadAudio("Jay-Z & Kanye West - Niggas in Paris - Watch the Throne.mp3");
         getAudioPlayer().play();
         //startListening(); 
         
