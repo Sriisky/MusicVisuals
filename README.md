@@ -65,11 +65,24 @@ The use of ```pushMatrix()``` and ```popMatrix()``` are more prevalent when we s
 	popMatrix();
 ```
 
+Our star warp visual that is used in the background of our first case used 3 variable to create the warped perception. We made a seperate Star class to create the functions that will keep the stars regenerating. The update() function is what generates the stars at a certain point in the centre of the screen. The z variable is what creates the sense of depth in the scenario
+
+```Java
+	void update() {
+        z = (float) (z - 0.25);
+        if (z < 1) {
+            z = width;
+            x = random(-width, width);
+            y = random(-height, height);
+        }
+
+```
+
 
 # What we are most proud of in the assignment
 Our proudest moment was creating code that resembles the feeling of the music. There is a real out of space melody to the song so we decided to recreate the feeling of falling through space with our 1st visual. We had many errors in the initial development of our star warp background but after many failed attempts we made a successful version where there is a perception of the stars coming from the middle of the screen.
 
-It was a really rewarding moment when we completed our third case and we could see how all of our visuals reacted to the song. The 
+It was a really rewarding moment when we completed our third case and we could see how all of our visuals reacted to the song.
 
 
 The websites and videos we used to support our visual creations are below:
