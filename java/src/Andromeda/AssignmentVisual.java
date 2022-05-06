@@ -199,52 +199,31 @@ public class AssignmentVisual extends Visual {
                 line(800 - daddy * 3, 800 - daddy * 3, width / 2 + daddy, height / 2 + daddy);
                 line(800 - daddy * 3, 0 + daddy * 3, width / 2 + daddy, height / 2 - daddy);
 
-                // STAR
+                background(0);
+                calculateAverageAmplitude();
+                float wave = sin(radians(frameCount));
+                float daddy = 10 + (200 * getSmoothedAmplitude());
+                stroke(random(0, 255), 255, 255);
+
+                // Draw cubes spinning and moving vertically
                 pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
                 fill(0);
-                beginShape();
-                vertex(width / 2, height / 2 + daddy);
-                vertex(width / 2 + 10 + daddy, height / 2 + 10 + daddy);
-                vertex(width / 2 + daddy, height / 2);
-                vertex(width / 2 + 10 + daddy, height / 2 - 10 - daddy);
-                vertex(width / 2, height / 2 - daddy);
-                vertex(width / 2 - 10 - daddy, height / 2 - 10 - daddy);
-                vertex(width / 2 - daddy, height / 2);
-                vertex(width / 2 - 10 - daddy, height / 2 + 10 + daddy);
-                vertex(width / 2, height / 2 + daddy);
-                endShape();
-                popMatrix();
-                pushMatrix();
-                fill(0);
-                beginShape();
-                vertex(width / 2, height / 2 + daddy);
-                vertex(width / 2 + 10, height / 2 + 10);
-                vertex(width / 2 + daddy, height / 2);
-                vertex(width / 2 + 10, height / 2 - 10);
-                vertex(width / 2, height / 2 - daddy);
-                vertex(width / 2 - 10, height / 2 - 10);
-                vertex(width / 2 - daddy, height / 2);
-                vertex(width / 2 - 10, height / 2 + 10);
-                vertex(width / 2, height / 2 + daddy);
-                endShape();
+                translate(400, 200, wave * 200);
+                rotateX(wave);
+                rotateY(wave);
+                box(daddy);
                 popMatrix();
 
-                // triangle
                 pushMatrix();
-                beginShape();
-                vertex(width / 2, height / 2 + daddy * 2);
-                vertex(width / 2 + daddy * 2, height / 2);
-                vertex(width / 2, height / 2 - daddy * 2);
-                vertex(width / 2 - daddy * 2, height / 2);
-                vertex(width / 2, height / 2 + daddy * 2);
-                endShape();
-                popMatrix();
-
-                // cricle
-                pushMatrix();
-                stroke(204, 150, 0);
-                translate(width / 2, width / 2);
-                sphere(10);
+                lights();
+                strokeWeight(1);
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(400, 600, wave * 200);
+                rotate(wave);
+                box(daddy);
                 popMatrix();
 
             }
