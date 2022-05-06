@@ -11,6 +11,9 @@ public class AssignmentVisual extends Visual {
     }
 
     int mode = 1;
+    float a;                 // Angle of rotation
+    float offset = (float) (PI/24.0);  // Angle offset between boxes
+    int num = 12;            // Number of boxes
 
     public void keyPressed() {
         if (key >= '0' && key <= '9') {
@@ -274,8 +277,27 @@ public class AssignmentVisual extends Visual {
                 popMatrix();
 
             }
+            break;
 
-            case 4: {
+            case 3: {
+                background(0);
+                lights();
+
+                translate(width/2, height/2); 
+                
+                for(int i = 0; i < num; i++) {
+                  float gray = map(i, 0, num-1, 0, 255);
+                  pushMatrix();
+                  stroke(random(0,255),255,255);
+                  fill(gray);
+                  rotateY(a + offset*i);
+                  rotateX(a/2 + offset*i);
+                  box(200);
+                  popMatrix();
+                }
+
+                
+                a += 0.01; 
 
             }
                 break;
