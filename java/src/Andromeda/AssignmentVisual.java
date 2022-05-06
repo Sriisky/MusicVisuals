@@ -1,10 +1,6 @@
 package Andromeda;
-
-import ddf.minim.AudioBuffer;
-import ddf.minim.AudioInput;
-import ddf.minim.Minim;
 import ie.tudublin.*;
-import processing.core.PApplet;
+
 
 public class AssignmentVisual extends Visual {
     public void settings() {
@@ -85,6 +81,7 @@ public class AssignmentVisual extends Visual {
                 // fill(random(0,255), 255 ,255);
                 fill(0);
                 lights();
+                strokeWeight(1);
                 stroke(random(0, 255), 255, 255);
                 // stroke(255);
                 translate(400, 400, 0);
@@ -189,10 +186,54 @@ public class AssignmentVisual extends Visual {
             case 3: {
                 background(0);
                 calculateAverageAmplitude();
+                float wave = sin(radians(frameCount));
                 float daddy = 10 + (200 * getSmoothedAmplitude());
+                stroke(random(0, 255), 255, 255);
+
+                // cubes
+
+                pushMatrix();
+                lights();
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(400, 200, wave * 200);
+                rotateX(wave);
+                rotateY(wave);
+                box(daddy);
+                popMatrix();
+
+                pushMatrix();
+                lights();
+                strokeWeight(1);
+                stroke(random(0, 255), 255, 255);
+                fill(0);
+                translate(400, 600, wave * 200);
+                rotate(wave);
+                box(daddy);
+                popMatrix();
+
+                // spheres
+                pushMatrix();
+                strokeWeight(1);
+                stroke(random(0,255), 255, 255);
+                fill(0);
+                rotateX(wave);
+                translate(200, 400, wave * 200);
+                sphere(daddy / 2);
+                popMatrix();
+
+                pushMatrix();
+                strokeWeight(1);
+                stroke(random(0,255), 255, 255);
+                rotateX(wave);
+                fill(0);
+                translate(600, 400, wave * 200);
+                sphere(daddy / 2);
+                popMatrix();
+                
 
                 // LINES
-                stroke(random(0, 255), 255, 255);
+                // stroke(180, 255, 255);
                 strokeWeight(2);
                 line(0 + daddy * 3, 0 + daddy * 3, width / 2 - daddy, height / 2 - daddy);
                 line(0 + daddy * 3, 800 - daddy * 3, width / 2 - daddy, height / 2 + daddy);
@@ -202,6 +243,7 @@ public class AssignmentVisual extends Visual {
                 // STAR
                 pushMatrix();
                 fill(0);
+                // stroke(30, 255, 255);
                 beginShape();
                 vertex(width / 2, height / 2 + daddy);
                 vertex(width / 2 + 10 + daddy, height / 2 + 10 + daddy);
@@ -214,8 +256,9 @@ public class AssignmentVisual extends Visual {
                 vertex(width / 2, height / 2 + daddy);
                 endShape();
                 popMatrix();
+
                 pushMatrix();
-                fill(0);
+                // stroke(220, 255, 255);
                 beginShape();
                 vertex(width / 2, height / 2 + daddy);
                 vertex(width / 2 + 10, height / 2 + 10);
@@ -231,6 +274,8 @@ public class AssignmentVisual extends Visual {
 
                 // triangle
                 pushMatrix();
+                // stroke(120, 255, 255);
+                noFill();
                 beginShape();
                 vertex(width / 2, height / 2 + daddy * 2);
                 vertex(width / 2 + daddy * 2, height / 2);
@@ -242,9 +287,11 @@ public class AssignmentVisual extends Visual {
 
                 // cricle
                 pushMatrix();
-                stroke(204, 150, 0);
-                translate(width / 2, width / 2);
-                sphere(10);
+                // stroke(random(0, 255), 255, 255);
+                fill(0);
+                circle(width / 2, height / 2, daddy / 4);
+                circle(width / 2 + 50 + daddy, height / 2 - 10 + daddy, daddy - 10);
+                circle(width / 2 - 50 - daddy, height / 2 - 10 + daddy, daddy - 10);
                 popMatrix();
 
             }
