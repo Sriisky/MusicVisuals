@@ -295,10 +295,9 @@ public class AssignmentVisual extends Visual {
                     // fill(gray);
                     rotateY(a + offset * i);
                     rotateX(a / 2 + offset * i);
-                    box(daddy*5);
+                    box(daddy * 5);
                     popMatrix();
                 }
-
                 a += 0.01;
 
             }
