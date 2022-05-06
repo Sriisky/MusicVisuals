@@ -190,6 +190,8 @@ public class AssignmentVisual extends Visual {
                 background(0);
                 calculateAverageAmplitude();
                 float daddy = 10 + (200 * getSmoothedAmplitude());
+                float wave = sin(radians(frameCount));
+                stroke(random(0, 255), 255, 255);
 
                 // LINES
                 stroke(random(0, 255), 255, 255);
@@ -199,11 +201,7 @@ public class AssignmentVisual extends Visual {
                 line(800 - daddy * 3, 800 - daddy * 3, width / 2 + daddy, height / 2 + daddy);
                 line(800 - daddy * 3, 0 + daddy * 3, width / 2 + daddy, height / 2 - daddy);
 
-                background(0);
-                calculateAverageAmplitude();
-                float wave = sin(radians(frameCount));
-                float daddy = 10 + (200 * getSmoothedAmplitude());
-                stroke(random(0, 255), 255, 255);
+                
 
                 // Draw cubes spinning and moving vertically
                 pushMatrix();
