@@ -104,3 +104,4 @@ This is our vimeo video as we were unable to post to Youtube due to copyright:
 
 - [Vimeo link](https://vimeo.com/707030173)
 
+** Late note: Sabrina's laptop could not run the code, so all progress in programming and running the visuals was done within the group and pushed from the others' devices **
